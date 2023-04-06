@@ -25,5 +25,20 @@ namespace RAA_Level_02_Challenges
         {
             InitializeComponent();
         }
+
+        private void btnSelect_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
