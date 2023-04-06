@@ -26,20 +26,54 @@ namespace RAA_Level_02_Challenges
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
 
-            // put any code needed for the form here
-
             // open form
-            frmViewRenumberer currentForm = new frmViewRenumberer()
+            frmViewRenumberer curForm = new frmViewRenumberer(doc, null)
             {
-                Width = 800,
+                Width = 600,
                 Height = 450,
                 WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
                 Topmost = true,
             };
 
-            currentForm.ShowDialog();
+            curForm.ShowDialog();
 
-            // get form data and do something
+            if(curForm.DialogResult == false)
+            {
+                return Result.Failed;
+            }
+
+            List<Reference> refList = new List<Reference>();
+            bool flag = true;
+
+            while(flag == true)
+            {
+                try
+                {
+                    Reference curRef = uidoc.Selection.PickObject(ObjectType.Element, "Select views to renumber in order. Hit Esc when done.");
+                    refList.Add(curRef);
+                }
+                catch (Exception)
+                {
+                    flag = false;
+                }
+            }
+
+            // open the form again
+
+            frmViewRenumberer curForm2 = new frmViewRenumberer(doc, refList)
+            {
+                Width = 600,
+                Height = 450,
+                WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
+                Topmost = true,
+            };
+
+            curForm2.ShowDialog();
+
+            if (curForm2.DialogResult == false)
+            {
+                return Result.Failed;
+            }
 
             return Result.Succeeded;
         }
