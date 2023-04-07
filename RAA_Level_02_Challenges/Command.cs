@@ -75,6 +75,40 @@ namespace RAA_Level_02_Challenges
                 return Result.Failed;
             }
 
+            // set variables
+
+            int counter = 0;
+            int startNum = curForm2.GetStartNumber();
+            int curNum = startNum;
+            List<Element> viewList = curForm2.GetSelectedViews();
+
+            using (Transaction t = new Transaction(doc))
+            {
+                t.Start("Renumber Views");
+
+                foreach (Element curElem in viewList)
+                {
+                    Parameter curParam = curElem.get_Parameter(BuiltInParameter.VIEWPORT_DETAIL_NUMBER);
+                    curParam.Set("z" + curNum.ToString());
+
+                    curNum++;
+                    counter++;
+                }
+
+                curNum = startNum;
+
+                foreach (Element curView in viewList)
+                {
+                    Parameter curParam = curView.get_Parameter(BuiltInParameter.VIEWPORT_DETAIL_NUMBER);
+                    curParam.Set(curNum.ToString());
+
+                    curNum++;
+                    counter++;
+                }
+
+                t.Commit();
+            }
+
             return Result.Succeeded;
         }
 

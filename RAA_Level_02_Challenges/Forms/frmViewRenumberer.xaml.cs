@@ -69,5 +69,21 @@ namespace RAA_Level_02_Challenges
             this.DialogResult = false;
             this.Close();
         }
+
+        internal int GetStartNumber()
+        {
+            string selectedNum = cmbNumber.SelectedItem.ToString();
+            int returnValue = Convert.ToInt32(selectedNum);
+
+            return returnValue;
+        }
+
+        internal List<Element> GetSelectedViews()
+        {
+            if (elemList != null)
+                return elemList;
+            else
+                return null;
+        }
     }
 }
