@@ -1,0 +1,21 @@
+﻿<Window x:Class="RAA_Level_02_Challenges.frmRenumberResults"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RAA_Level_02_Challenges"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>           
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>        
+        <Label Content="Renumber Results" Grid.Row="0" FontWeight="Bold" FontSize="24" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+        <Label Grid.Row="1" Content="Results of View Renumbering: " FontWeight="Bold" VerticalAlignment="Bottom"/>
+        <ListBox x:Name="lbxElements" Grid.Row="2" Grid.Column="0"/>        
+        <Button x:Name="btnClose" Content="Close" Width="90" Height="30" Margin="0,0,10,0" Click="btnClose_Click" Grid.Row="4" HorizontalAlignment="Right"/>            
+    </Grid>
+</Window>

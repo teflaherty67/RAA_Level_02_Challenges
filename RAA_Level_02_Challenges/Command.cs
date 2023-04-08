@@ -26,6 +26,12 @@ namespace RAA_Level_02_Challenges
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
 
+            if(doc.ActiveView is ViewSheet == false)
+            {
+                TaskDialog.Show("Error", "The current view is not a sheet");
+                return Result.Failed;
+            }
+
             // open form
             frmViewRenumberer curForm = new frmViewRenumberer(doc, null)
             {
@@ -91,8 +97,7 @@ namespace RAA_Level_02_Challenges
                     Parameter curParam = curElem.get_Parameter(BuiltInParameter.VIEWPORT_DETAIL_NUMBER);
                     curParam.Set("z" + curNum.ToString());
 
-                    curNum++;
-                    counter++;
+                    curNum++;                   
                 }
 
                 curNum = startNum;
@@ -108,6 +113,21 @@ namespace RAA_Level_02_Challenges
 
                 t.Commit();
             }
+
+            List<string> results = new List<string>();
+            results.Add("Renumbered " + counter.ToString() + " views.");
+
+            frmRenumberResults curResults = new frmRenumberResults(results)
+            {
+                Width = 500,
+                Height = 350,
+                WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
+                Topmost = true,
+            };
+
+            curResults.ShowDialog();
+
+            // TaskDialog.Show("Complete", "Renumbered " + counter.ToString() + " views.");
 
             return Result.Succeeded;
         }

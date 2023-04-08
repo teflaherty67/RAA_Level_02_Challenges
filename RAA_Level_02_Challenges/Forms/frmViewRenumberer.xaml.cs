@@ -33,6 +33,8 @@ namespace RAA_Level_02_Challenges
                 cmbNumber.Items.Add(i.ToString());
             }
 
+            cmbNumber.SelectedIndex = 0;
+
             if(refList != null)
             {
                 lbxElements.Items.Clear();
@@ -45,7 +47,11 @@ namespace RAA_Level_02_Challenges
                     if(curElem is Viewport)
                     {
                         elemList.Add(curElem);
-                        lbxElements.Items.Add(curElem.ToString());
+
+                        Parameter curParam = curElem.get_Parameter(BuiltInParameter.VIEWPORT_VIEW_NAME);
+                        Parameter curParam2 = curElem.get_Parameter(BuiltInParameter.VIEWPORT_DETAIL_NUMBER);
+
+                        lbxElements.Items.Add(curParam2.AsString() + ": " + curParam.AsString() + " (" + curElem.Id.ToString() + ")");
                     }
                 }
 
