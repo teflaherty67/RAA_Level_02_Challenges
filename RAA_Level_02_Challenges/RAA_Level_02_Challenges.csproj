@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Classes\ButtonDataClass.cs" />
+    <Compile Include="Classes\SheetData.cs" />
     <Compile Include="cmdSheetMaker.cs" />
     <Compile Include="cmdViewRenumberer.cs" />
     <Compile Include="Forms\frmRenumberResults.xaml.cs">
