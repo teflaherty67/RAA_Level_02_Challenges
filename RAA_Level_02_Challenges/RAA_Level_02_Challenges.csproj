@@ -58,9 +58,13 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Classes\ButtonDataClass.cs" />
-    <Compile Include="Command.cs" />
+    <Compile Include="cmdSheetMaker.cs" />
+    <Compile Include="cmdViewRenumberer.cs" />
     <Compile Include="Forms\frmRenumberResults.xaml.cs">
       <DependentUpon>frmRenumberResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSheetMaker.xaml.cs">
+      <DependentUpon>frmSheetMaker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -87,6 +91,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Forms\frmRenumberResults.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\frmSheetMaker.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

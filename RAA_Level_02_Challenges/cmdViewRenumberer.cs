@@ -14,7 +14,7 @@ using System.Reflection;
 namespace RAA_Level_02_Challenges
 {
     [Transaction(TransactionMode.Manual)]
-    public class Command : IExternalCommand
+    public class cmdViewRenumberer : IExternalCommand
     {
         public Result Execute(
           ExternalCommandData commandData,
