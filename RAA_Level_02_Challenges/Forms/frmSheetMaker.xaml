@@ -25,9 +25,9 @@
                   EnableColumnVirtualization="False"
                   EnableRowVirtualization="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Sheet Number" Width="100" IsReadOnly="False"/>
-                <DataGridTextColumn Header="Sheet Name" Width="*" IsReadOnly="False"/>
-                <DataGridCheckBoxColumn Header="Is Placeholder?" IsReadOnly="False" Width="100"/>
+                <DataGridTextColumn Header="Sheet Number" Width="100" IsReadOnly="False" Binding="{Binding SheetNumber, Mode=TwoWay}"/>
+                <DataGridTextColumn Header="Sheet Name" Width="*" IsReadOnly="False" Binding="{Binding SheetName, Mode=TwoWay}"/>
+                <DataGridCheckBoxColumn Header="Is Placeholder?" IsReadOnly="False" Width="100" Binding="{Binding IsPlaceholder, Mode=TwoWay}"/>
                 <DataGridComboBoxColumn x:Name="cmbTitleblock" Width="200" Header="Titleblock" IsReadOnly="False"/>
             </DataGrid.Columns>            
         </DataGrid>

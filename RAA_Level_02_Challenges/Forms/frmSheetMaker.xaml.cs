@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Autodesk.Revit.DB;
 
-
 namespace RAA_Level_02_Challenges
 {
     /// <summary>
@@ -22,13 +22,17 @@ namespace RAA_Level_02_Challenges
     /// </summary>
     public partial class frmSheetMaker : Window
     {
+        ObservableCollection<SheetData> sheetList {  get; set; }
+
         public List<Element> elemList;
 
         public frmSheetMaker()
         {
             InitializeComponent();
 
-           
+            sheetList = new ObservableCollection<SheetData>();
+
+            sheetGrid.DataContext = sheetList;
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
