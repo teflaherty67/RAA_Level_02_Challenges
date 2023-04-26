@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RAA_Level_02_Challenges
 {
-    internal class SheetData
+    public class SheetData
     {
         public string SheetNumber {  get; set; }
         public string SheetName { get; set;}

@@ -24,9 +24,13 @@ namespace RAA_Level_02_Challenges
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Application app = uiapp.Application;
-            Document doc = uidoc.Document;
+            Document doc = uidoc.Document; 
+            
+            // put any code needed for the form here
 
-          
+            FilteredElementCollector tblockCollector = new FilteredElementCollector(doc);
+            tblockCollector.OfCategory(BuiltInCategory.OST_TitleBlocks);
+            tblockCollector.WhereElementIsElementType();
 
             // open form
             frmSheetMaker curForm = new frmSheetMaker()
@@ -38,6 +42,11 @@ namespace RAA_Level_02_Challenges
             };
 
             curForm.ShowDialog();
+
+            if(curForm.DialogResult == true)
+            {
+                // get form data and so something
+            }
          
             return Result.Succeeded;
         }

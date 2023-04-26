@@ -9,6 +9,15 @@
     <VendorId>com.YOUR COMPANY NAME</VendorId>
     <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
   </AddIn>
+  <AddIn Type="Command">
+    <Text>Command RAA_Level_02_Challenges</Text>
+    <Description>Some description for RAA_Level_02_Challenges</Description>
+    <Assembly>RAA_Level_02_Challenges.dll</Assembly>
+    <FullClassName>RAA_Level_02_Challenges.cmdSheetMaker</FullClassName>
+    <ClientId>75DE9BF0-96D8-4485-A7E2-B056D87E0B07</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
   <AddIn Type="Application">
     <Name>Application RAA_Level_02_Challenges</Name>
     <Assembly>RAA_Level_02_Challenges.dll</Assembly>

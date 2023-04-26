@@ -32,7 +32,7 @@ namespace RAA_Level_02_Challenges
 
             sheetList = new ObservableCollection<SheetData>();
 
-            sheetGrid.DataContext = sheetList;
+            sheetGrid.ItemsSource = sheetList;
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -55,6 +55,11 @@ namespace RAA_Level_02_Challenges
         {
             this.DialogResult = false; 
             this.Close();
+        }
+
+        public List<SheetData> GetSheetData()
+        {
+            return sheetList.ToList();
         }
     }
 }
