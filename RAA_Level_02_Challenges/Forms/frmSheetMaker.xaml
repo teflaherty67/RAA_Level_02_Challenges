@@ -28,7 +28,8 @@
                 <DataGridTextColumn Header="Sheet Number" Width="100" IsReadOnly="False" Binding="{Binding SheetNumber, Mode=TwoWay}"/>
                 <DataGridTextColumn Header="Sheet Name" Width="*" IsReadOnly="False" Binding="{Binding SheetName, Mode=TwoWay}"/>
                 <DataGridCheckBoxColumn Header="Is Placeholder?" IsReadOnly="False" Width="100" Binding="{Binding IsPlaceholder, Mode=TwoWay}"/>
-                <DataGridComboBoxColumn x:Name="cmbTitleblock" Width="200" Header="Titleblock" IsReadOnly="False"/>
+                <DataGridComboBoxColumn x:Name="cmbTitleblock" Width="200" Header="Titleblock" IsReadOnly="False" 
+                                        SelectedItemBinding="{Binding Titleblock}" DisplayMemberPath="Name"/>
             </DataGrid.Columns>            
         </DataGrid>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left">

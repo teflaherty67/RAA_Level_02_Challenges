@@ -7,6 +7,7 @@ using Autodesk.Revit.UI.Selection;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 
 #endregion
@@ -33,7 +34,7 @@ namespace RAA_Level_02_Challenges
             tblockCollector.WhereElementIsElementType();
 
             // open form
-            frmSheetMaker curForm = new frmSheetMaker()
+            frmSheetMaker curForm = new frmSheetMaker(tblockCollector.ToList())
             {
                 Width = 600,
                 Height = 450,

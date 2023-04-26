@@ -23,16 +23,19 @@ namespace RAA_Level_02_Challenges
     public partial class frmSheetMaker : Window
     {
         ObservableCollection<SheetData> sheetList {  get; set; }
+        ObservableCollection<Element> TBlockData { get; set; }
 
         public List<Element> elemList;
 
-        public frmSheetMaker()
+        public frmSheetMaker(List<Element> TblockList)
         {
             InitializeComponent();
 
             sheetList = new ObservableCollection<SheetData>();
+            TBlockData = new ObservableCollection<Element>(TblockList);
 
             sheetGrid.ItemsSource = sheetList;
+            cmbTitleblock.ItemsSource = TblockList;
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
