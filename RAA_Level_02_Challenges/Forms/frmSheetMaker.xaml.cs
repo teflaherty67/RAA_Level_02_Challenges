@@ -40,12 +40,21 @@ namespace RAA_Level_02_Challenges
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            sheetList.Add(new SheetData());
         }
 
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                foreach(SheetData curRow in sheetList)
+                {
+                    if (sheetGrid.SelectedItem == curRow)
+                        sheetList.Remove(curRow);
+                }
+            }
+            catch (Exception)
+            {}
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)

@@ -55,19 +55,27 @@ namespace RAA_Level_02_Challenges
                     // get form data and so something
                     foreach (SheetData curData in curForm.GetSheetData())
                     {
-                        ViewSheet newSheet;
 
-                        if (curData.IsPlaceholder == true)
+                        try
                         {
-                            newSheet = ViewSheet.CreatePlaceholder(doc);
-                        }
-                        else
-                        {
-                            newSheet = ViewSheet.Create(doc, curData.Titleblock.Id);
-                        }
+                            ViewSheet newSheet;
 
-                        newSheet.SheetNumber = curData.SheetNumber;
-                        newSheet.Name = curData.SheetName;
+                            if (curData.IsPlaceholder == true)
+                            {
+                                newSheet = ViewSheet.CreatePlaceholder(doc);
+                            }
+                            else
+                            {
+                                newSheet = ViewSheet.Create(doc, curData.Titleblock.Id);
+                            }
+
+                            newSheet.SheetNumber = curData.SheetNumber;
+                            newSheet.Name = curData.SheetName;
+                        }
+                        catch (Exception ex)
+                        {
+                            TaskDialog.Show("Error", "An error has occured: " + ex.Message);
+                        }                        
                     }
 
                     t.Commit();
