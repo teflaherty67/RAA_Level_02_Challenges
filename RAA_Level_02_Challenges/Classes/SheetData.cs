@@ -13,5 +13,6 @@ namespace RAA_Level_02_Challenges
         public string SheetName { get; set;}
         public bool IsPlaceholder { get; set; }
         public Element Titleblock { get; set; }
+        public View SelectedView { get; set; }
     }
 }

@@ -34,7 +34,7 @@ namespace RAA_Level_02_Challenges
             tblockCollector.WhereElementIsElementType();
 
             // open form
-            frmSheetMaker curForm = new frmSheetMaker(tblockCollector.ToList())
+            frmSheetMaker curForm = new frmSheetMaker(tblockCollector.ToList(), GetViews(doc))
             {
                 Width = 600,
                 Height = 450,
@@ -83,6 +83,28 @@ namespace RAA_Level_02_Challenges
             }
          
             return Result.Succeeded;
+        }
+
+        private List<View> GetViews(Document doc)
+        {
+            List<View> m_returnList = new List<View>();
+
+            FilteredElementCollector m_viewCollector = new FilteredElementCollector(doc);
+            m_viewCollector.OfCategory(BuiltInCategory.OST_Views);
+
+            FilteredElementCollector m_sheetCollector = new FilteredElementCollector(doc);
+            m_sheetCollector.OfCategory(BuiltInCategory.OST_Sheets);
+
+            foreach (View curView in m_viewCollector)
+            {
+                if (curView.IsTemplate == false)
+                {
+                    if (Viewport.CanAddViewToSheet(doc, m_sheetCollector.FirstElementId(), curView.Id) == true)
+                        m_returnList.Add(curView);
+                }
+            }
+
+            return m_returnList;
         }
 
         public static String GetMethod()

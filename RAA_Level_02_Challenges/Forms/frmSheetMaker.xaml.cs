@@ -27,7 +27,7 @@ namespace RAA_Level_02_Challenges
 
         public List<Element> elemList;
 
-        public frmSheetMaker(List<Element> TblockList)
+        public frmSheetMaker(List<Element> TblockList, List<View> ViewList)
         {
             InitializeComponent();
 
