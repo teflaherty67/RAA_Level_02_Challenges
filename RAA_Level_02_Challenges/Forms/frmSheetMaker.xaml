@@ -30,11 +30,17 @@
                 <DataGridCheckBoxColumn Header="Is Placeholder?" IsReadOnly="False" Width="100" Binding="{Binding IsPlaceholder, Mode=TwoWay}"/>
                 <DataGridComboBoxColumn x:Name="cmbTitleblock" Width="200" Header="Titleblock" IsReadOnly="False" 
                                         SelectedItemBinding="{Binding Titleblock}" DisplayMemberPath="Name"/>
+                <DataGridComboBoxColumn x:Name="cmbViews" Width="200" Header="View" IsReadOnly="False" 
+                                        SelectedItemBinding="{Binding SelectedView}" DisplayMemberPath="Name"/>
             </DataGrid.Columns>            
         </DataGrid>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left">
             <Button x:Name="btnAdd" Width="30" Content="+" Height="30" Margin="0,0,10,0" Click="btnAdd_Click"/>
             <Button x:Name="btnRemove" Width="30" Content="-" Height="30" Click="btnRemove_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Button x:Name="btnLoad" Width="90" Content="Load" Height="30" Margin="0,0,10,0" Click="btnLoad_Click"/>
+            <Button x:Name="btnSave" Width="90" Content="Save" Height="30" Click="btnSave_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Width="90" Content="OK" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
